@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Practica vocabulario C2 en español con ejercicios breves de sustitución léxica."
+    />
+    <title>Vocabulario C2 | Práctica léxica</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Español avanzado</p>
+            <h1 id="app-title">Vocabulario C2</h1>
+          </div>
+          <div class="scoreboard" aria-label="Progreso de la sesión">
+            <div>
+              <span id="score-correct">0</span>
+              <small>aciertos</small>
+            </div>
+            <div>
+              <span id="score-total">0</span>
+              <small>respondidas</small>
+            </div>
+            <div>
+              <span id="score-streak">0</span>
+              <small>racha</small>
+            </div>
+          </div>
+        </header>
+
+        <section class="practice-grid">
+          <aside class="controls" aria-label="Configuración de práctica">
+            <div class="control-group">
+              <label for="category-select">Categoría</label>
+              <select id="category-select">
+                <option value="Todas">Todas</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="session-size">Tamaño de sesión</label>
+              <select id="session-size">
+                <option value="10">10 frases</option>
+                <option value="20" selected>20 frases</option>
+                <option value="50">50 frases</option>
+                <option value="1000">Banco completo</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <span class="label">Modo</span>
+              <div class="segmented" role="group" aria-label="Modo de corrección">
+                <button class="segment active" data-mode="practice" type="button">Práctica</button>
+                <button class="segment" data-mode="review" type="button">Repaso</button>
+              </div>
+            </div>
+
+            <button class="primary-action" id="new-session" type="button">Nueva sesión</button>
+            <button class="secondary-action" id="reset-progress" type="button">Borrar progreso</button>
+
+            <div class="bank-summary">
+              <strong id="bank-count">1000</strong>
+              <span>frases disponibles</span>
+            </div>
+          </aside>
+
+          <section class="exercise-panel" aria-live="polite">
+            <div class="meter">
+              <div>
+                <span id="question-position">1</span>
+                <small>de <span id="question-count">20</span></small>
+              </div>
+              <progress id="session-progress" value="0" max="100">0%</progress>
+            </div>
+
+            <article class="prompt-card">
+              <div class="category-row">
+                <span id="prompt-category">Conector</span>
+                <button id="hint-button" class="ghost-button" type="button">Pista</button>
+              </div>
+              <p id="prompt-text" class="prompt-text"></p>
+              <form id="answer-form" class="answer-form">
+                <label class="sr-only" for="answer-input">Respuesta</label>
+                <input
+                  id="answer-input"
+                  type="text"
+                  autocomplete="off"
+                  spellcheck="false"
+                  placeholder="Escribe la opción C2..."
+                />
+                <button type="submit">Comprobar</button>
+              </form>
+              <p id="feedback" class="feedback" aria-live="polite"></p>
+            </article>
+
+            <nav class="question-nav" aria-label="Navegación de preguntas">
+              <button id="prev-question" class="secondary-action" type="button">Anterior</button>
+              <button id="next-question" class="secondary-action" type="button">Siguiente</button>
+            </nav>
+          </section>
+        </section>
+      </section>
+    </main>
+
+    <script src="data/frases-c2.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
